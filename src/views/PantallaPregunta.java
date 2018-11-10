@@ -13,6 +13,7 @@ import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
 
 import controllers.ControllerPregunta;
 import models.Pregunta;
@@ -65,22 +66,22 @@ public class PantallaPregunta extends JFrame {
 	}
 	
 	JPanel addPregunta(String text){
-		JPanel panel_3 = new JPanel();
-		panel_3.setBounds(0, 0, 200, 33);
-		
-		JLabel lblNewLabel = new JLabel(text);
-		panel_3.add(lblNewLabel);
+		JPanel panelPregunta = new JPanel();
+		panelPregunta.setLayout(new GridLayout(1, 3, 0, 0));
+		panelPregunta.setBorder(new EmptyBorder(10, 10, 10, 10));
+		JLabel pregunta = new JLabel(text);
+		pregunta.setBorder(new EmptyBorder(0,0,0,50));
+		panelPregunta.add(pregunta);
 		ButtonGroup group = new ButtonGroup();
-		
 		JRadioButton rdbtnNewRadioButton_2 = new JRadioButton("Verdadero");
 		JRadioButton rdbtnNewRadioButton_3 = new JRadioButton("Falso");
 		group.add(rdbtnNewRadioButton_2);
 		group.add(rdbtnNewRadioButton_3);
 		arrayGrupos.add(group);
-		panel_3.add(rdbtnNewRadioButton_2,BorderLayout.WEST);
-		panel_3.add(rdbtnNewRadioButton_3,BorderLayout.WEST);
-		panel_3.setVisible(true);
-		return panel_3;
+		panelPregunta.add(rdbtnNewRadioButton_2,BorderLayout.WEST);
+		panelPregunta.add(rdbtnNewRadioButton_3,BorderLayout.WEST);
+		panelPregunta.setVisible(true);
+		return panelPregunta;
 	}
 
 	public Map getResult() {
